@@ -17,13 +17,11 @@ export const compararContraseña = (contrasena, repetircontrasena) => {
 }
 
 export function validarStrings(nombre) {
-    // Expresión regular para validar que el nombre solo contenga letras
     const regex = /^[A-Za-z]+$/;
     return regex.test(nombre);
 }
 
 export function validarTelefono(telefono) {
-    // Expresión regular para validar que el teléfono solo contenga números y tenga 9 o 10 dígitos
     const regex = /^[0-9]{9,10}$/;
     return regex.test(telefono);
 }

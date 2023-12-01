@@ -1,10 +1,8 @@
-import { GET_USUARIO, GET_CONTACTOS, GET_CATEGORIAS, GET_ORGANIZACIONES } from "../actions/actions";
+import { GET_USUARIO, GET_CONTACTOS } from "../actions/actions";
 
 const initialState = {
     usuario: {},
     contactos: [],
-    categorias: [],
-    organizaciones: []
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -18,16 +16,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 contactos: payload
-            }
-        case GET_CATEGORIAS:
-            return {
-                ...state,
-                categorias: payload
-            }
-            case GET_ORGANIZACIONES:
-            return {
-                ...state,
-                organizaciones: payload
             }
         default:
             return state;

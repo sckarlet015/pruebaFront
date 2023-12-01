@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from './Detail.module.css';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import userDefaul from "../../assets/user-defaul.svg"
 import iconEdit from "../../assets/edit.svg"
 import axios from "axios";

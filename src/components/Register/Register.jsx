@@ -7,7 +7,6 @@ import { validarCorreo, validarContrasena, compararContraseña, validarStrings }
 export default function Register() {
   const [correo, setCorreo] = useState("");
   const [contrasena, setContrasena] = useState("");
-  const [repetirContrasena, setRepetirContrasena] = useState("");
   const [nombre, setNombre] = useState("");
   const [errors, setErrors] = useState({ correo: "No puede quedar vacio", contrasena: "No puede quedar vacio", nombre: "No puede quedar vacio", repetirContrasena: "No puede quedar vacio" })
   const [hasErrors, setHasErrors] = useState(false);
@@ -40,7 +39,6 @@ export default function Register() {
     }
     if (e.target.name === "repetirContrasena") {
       const nuevaRepetirContrasena = e.target.value;
-      setRepetirContrasena(nuevaRepetirContrasena);
       const repetirContrasenaError = compararContraseña(nuevaRepetirContrasena, contrasena) ? "" : "La contraseña no coincide";
       setErrors((prevErrors) => ({ ...prevErrors, repetirContrasena: repetirContrasenaError }));
     }

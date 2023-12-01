@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import style from './UserDatel.module.css';  // Asegúrate de tener los estilos CSS adecuados
+import { useState } from "react";
+import style from './UserDatel.module.css'; 
 import iconEdit from "../../assets/edit.svg";
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import userDefaul from "../../assets/user-defaul.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { get_user } from "../../redux/actions/actions";
-import { validarStrings, validarContrasena, validarCorreo, compararContraseña } from '../Register/functions';
+import { validarStrings } from '../Register/functions';
 
 const UserDetail = () => {
     const usuario = useSelector(state => state.usuario);
@@ -109,21 +109,6 @@ const UserDetail = () => {
                     )}
                 </div>
                 <div className={style.camp}>
-                    <label className={style.inp}>{"Telefono:"}</label>
-                    {editBool ? (
-                        <div className={style.value}>{usuario.telefono || "No disponible"}</div>
-                    ) : (
-                        <input
-                            type="text"
-                            className={style.inp}
-                            name="telefono"
-                            placeholder={usuario.telefono || "sin datos"}
-                            value={newUsuario.telefono || ""}
-                            onChange={handleInputChange}
-                        />
-                    )}
-                </div>
-                <div className={style.camp}>
                     <label className={style.inp}>Celular:</label>
                     {editBool ? (
                         <div className={style.value}>{usuario.celular || "No disponible"}</div>
@@ -135,6 +120,21 @@ const UserDetail = () => {
                             autoComplete="off"
                             placeholder={usuario.celular || "sin datos"}
                             value={newUsuario.celular || ""}
+                            onChange={handleInputChange}
+                        />
+                    )}
+                </div>
+                <div className={style.camp}>
+                    <label className={style.inp}>{"Telefono:"}</label>
+                    {editBool ? (
+                        <div className={style.value}>{usuario.telefono || "No disponible"}</div>
+                    ) : (
+                        <input
+                            type="text"
+                            className={style.inp}
+                            name="telefono"
+                            placeholder={usuario.telefono || "sin datos"}
+                            value={newUsuario.telefono || ""}
                             onChange={handleInputChange}
                         />
                     )}

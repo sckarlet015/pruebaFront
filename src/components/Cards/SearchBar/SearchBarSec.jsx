@@ -14,7 +14,7 @@ const SearchBarSec = ({ orderChange, handleSearch, handleReset }) => {
         className={style.inp}
         type="text"
         id="searchQuery"
-        placeholder="Pokedex ID o Nombre"
+        placeholder="Nombre"
         onChange={handleSearchChange}
       />
       <button className={style.btn} onClick={handleReset}>Reset</button>
