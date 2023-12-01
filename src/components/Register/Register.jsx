@@ -10,6 +10,7 @@ export default function Register() {
   const [nombre, setNombre] = useState("");
   const [errors, setErrors] = useState({ correo: "No puede quedar vacio", contrasena: "No puede quedar vacio", nombre: "No puede quedar vacio", repetirContrasena: "No puede quedar vacio" })
   const [hasErrors, setHasErrors] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate();
 
@@ -52,6 +53,7 @@ export default function Register() {
   }
 
   const registro = async () => {
+    setLoading(false)
     try {
       let data = {
         nombre: nombre,
@@ -60,8 +62,10 @@ export default function Register() {
       };
 
       const res = await axios.post("https://backend-31q5.onrender.com/usuario/newUser", data);
+      setLoading(true)
       navigate("/")
     } catch (error) {
+      setLoading(true)
         alert(error.response.data.message);
       }
     };
@@ -82,6 +86,7 @@ export default function Register() {
         <button onClick={() => registro()} className={style.btn} disabled={hasErrors}>
           Registrar
         </button>
+        {loading === false &&  <h3>Cargando...</h3>}
         <span className={style.linked} onClick={() => onClickSesion()}>Iniciar Sesión</span>
       </div>
     </div>

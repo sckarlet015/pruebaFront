@@ -8,6 +8,7 @@ import { get_user } from "../../redux/actions/actions";
 export default function Home(){
     const [correo, setCorreo] = useState("")
     const [contrasena, setContrasena] = useState("")
+    const [loading, setLoading] = useState(true)
 
     const navigate = useNavigate();
     let dispatch = useDispatch()
@@ -21,6 +22,7 @@ export default function Home(){
         }
     }
     const sesion = async() => {
+        setLoading(false)
         try {
             let data = {
                 correo: correo,
@@ -28,8 +30,10 @@ export default function Home(){
             }
             const res = await axios.post("https://backend-31q5.onrender.com/usuario/login", data)
             dispatch(get_user(res.data))
+            setLoading(true)
             navigate("/agenda")
         } catch (error) {
+            setLoading(true)
             alert(error.response.data.message)
         }
     }
@@ -52,6 +56,7 @@ export default function Home(){
             <span className={style.linked} onClick={() => onClickRegistro()}>
                 Registrarse
             </span>
+           {loading === false &&  <h3>Cargando...</h3>}
             </div>
         </div>
     )
