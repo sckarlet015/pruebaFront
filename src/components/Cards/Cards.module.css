@@ -1,0 +1,12 @@
+.DivCards{
+    display: grid;
+    justify-content: center;
+}
+
+
+.btns{
+    margin-top: 10px;
+}
+.btn{
+    margin: 5px;
+}

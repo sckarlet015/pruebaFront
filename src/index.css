@@ -1,0 +1,29 @@
+:root {
+  --color-uno: #FFCB05;
+  --color-dos: #8D6F4D;
+  --color-tres: #2E5CC5;
+  --color-cuatro: #50C878;
+  --color-cinco: #E64C4C;
+  --color-seis: #FFFFFF;
+  --color-siete: #000000;
+}
+
+h1 {
+  color: #FFCB05;
+  -webkit-text-stroke: 1px #547ee0;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #E64C4C;
+    background-size: cover;
+    background-image: radial-gradient(rgb(66, 66, 66), transparent);
+}
